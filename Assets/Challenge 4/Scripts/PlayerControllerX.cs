@@ -70,7 +70,9 @@ public class PlayerControllerX : MonoBehaviour
            
             if (hasPowerup) // if have powerup hit enemy with powerup force
             {
-                enemyRigidbody.AddForce(awayFromPlayer * powerupStrength, ForceMode.Impulse);
+                float upForce = 0.2f;
+                awayFromPlayer = new Vector3(awayFromPlayer.x, upForce, awayFromPlayer.z);
+                enemyRigidbody.AddForce(awayFromPlayer * powerupStrength , ForceMode.Impulse);
             }
             else // if no powerup, hit enemy with normal strength 
             {
